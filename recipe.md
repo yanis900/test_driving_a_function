@@ -33,7 +33,7 @@ task_list(['#TODO Go Shopping , '#DONE Eat food']) == Here is your TODO list, yo
 ~Test if multiple todos are outputted 
 task_list(['#TODO Go Shopping' , '#DONE Eat food' '#TODO Put the bins out', '#DONE Go for a walk' , ' #TODO Go to the gym']) == 'Here is your TODO list, you have 3 tasks TODO: #TODO Go Shopping', #TODO Put the bins out, #TODO Go to the gym'.
 
-~Test if inoput was input initially 
+~Test if input was input initially 
 task_list(['#DONE Go Shopping , '#DONE Eat food']) == 'You have nothing TODO. Enjoy your free time!'
 
 ~Test if input contains an empty list:
