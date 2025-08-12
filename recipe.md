@@ -1,90 +1,43 @@
-# {{PROBLEM}} Function Design Recipe
+# Function Design Recipe
 
 ## 1. Describe the Problem
-
+As a user
+So that I can find my tasks among all my notes
+I want to check if a line from my notes includes the string `#TODO`.
 
 ## 2. Design the Function Signature
 
-_Include the name of the function, its parameters, return value, and side effects._
-
 ```python
+#Fucntion name/structure 
+def task_list(notes): 
+"""
 
+    Parameters: (list all parameters and their types)
+        notes: a list of all the lines in the note book 
 
+    Returns: (state the return value and its type)
+        If True: return a string that inclues the lines that include todo 
+        If False: return 'No items currently to do'
 
+    Side effects: (state any side effects)
+        No notes/empty list throws error 
     """
-    pass # Test-driving means _not_ writing any code here yet.
 ```
-
 ## 3. Create Examples as Tests
 
-_Make a list of examples of what the function will take and return._
-
 ```python
-# EXAMPLE
+"""
+~Test if it picks it up one todos 
+task_list(['#TODO Go Shopping , '#DONE Eat food']) == Here is your TODO list, you have 1 task: #TODO Go Shopping'
+
+~Test if multiple todos are outputted 
+task_list(['#TODO Go Shopping' , '#DONE Eat food' '#TODO Put the bins out', '#DONE Go for a walk' , ' #TODO Go to the gym']) == 'Here is your TODO list, you have 3 tasks TODO: #TODO Go Shopping', #TODO Put the bins out, #TODO Go to the gym'.
+
+~Test if inoput was input initially 
+task_list(['#DONE Go Shopping , '#DONE Eat food']) == 'You have nothing TODO. Enjoy your free time!'
+
+~Test if input contains an empty list:
+task_list([]) == 'You have not entered any notes'
 
 """
-Given a lower and an uppercase word
-It returns a list with the uppercase word
-"""
-extract_uppercase("hello WORLD") => ["WORLD"]
-
-"""
-Given two uppercase words
-It returns a list with both words
-"""
-extract_uppercase("HELLO WORLD") => ["HELLO", "WORLD"]
-
-"""
-Given two lowercase words
-It returns an empty list
-"""
-extract_uppercase("hello world") => []
-
-"""
-Given a lower and a mixed case word
-It returns an empty list
-"""
-extract_uppercase("hello WoRLD") => []
-
-"""
-Given a lowercase word and an uppercase word with an exclamation mark
-It returns a list with the uppercase word, no exclamation mark
-"""
-extract_uppercase("hello WORLD!") => ["WORLD"]
-
-"""
-Given an empty string
-It returns an empty list
-"""
-extract_uppercase("") => []
-
-"""
-Given a None value
-It throws an error
-"""
-extract_uppercase(None) throws an error
 ```
-
-_Encode each example as a test. You can add to the above list as you go._
-
-## 4. Implement the Behaviour
-
-_After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour._
-
-Here's an example for you to start with:
-
-```python
-# EXAMPLE
-
-from lib.extract_uppercase import *
-
-"""
-Given a lower and an uppercase word
-It returns a list with the uppercase word
-"""
-def test_extract_uppercase_with_upper_then_lower():
-    result = extract_uppercase("hello WORLD")
-    assert result == ["WORLD"]
-```
-
-Ensure all test function names are unique, otherwise pytest will ignore them!
